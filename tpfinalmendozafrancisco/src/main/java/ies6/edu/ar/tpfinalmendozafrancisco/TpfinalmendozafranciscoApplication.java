@@ -1,4 +1,4 @@
-package ies6.edu.ar.tpfinalmendozafrancisco.tpfinalmendozafrancisco;
+package ies6.edu.ar.tpfinalmendozafrancisco;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
