@@ -56,7 +56,7 @@ public class UsuarioController {
 
     //eliminar
     @GetMapping("/eliminarUsuario/{dni}")
-    public ModelAndView eliminarUsuario(@PathVariable("dni") String dni) {
+    public ModelAndView eliminarUsuario(@PathVariable("dni") Integer dni) {
         ModelAndView carritoDeEliminar = new ModelAndView("listaUsuarios");
         usuarioService.borrarUsuario(dni);
         carritoDeEliminar.addObject("listadoUsuario", usuarioService.listarTodosUsuariosActivos());
@@ -66,7 +66,7 @@ public class UsuarioController {
 
       //modificar
     @GetMapping("/modificarUsuario/{dni}")
-    public ModelAndView buscarUsuarioParaModificar(@PathVariable("dni") String dni) throws Exception {
+    public ModelAndView buscarUsuarioParaModificar(@PathVariable("dni") Integer dni) throws Exception {
         ModelAndView carritoParaModificarUsuario = new ModelAndView("usuario");
         carritoParaModificarUsuario.addObject("nuevoUsuario", usuarioService.buscarUnUsuario(dni));
         carritoParaModificarUsuario.addObject("band", true);

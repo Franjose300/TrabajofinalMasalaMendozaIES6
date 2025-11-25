@@ -2,52 +2,50 @@ package ies6.edu.ar.tpfinalmendozafrancisco.model;
 
 import java.time.LocalDate;
 
-
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Component
 @Entity
-public class Usuario {
-
+public class Conductor {
     @Id
     private Integer dni;
-    
     @Column
     @NotBlank(message = "El nombre es obligatorio")
     @Size(min = 3, max = 20, message = "El nombre debe tener entre 3 y 20 caracteres")
-    private String Nombre;
+    private String nombre;
     @Column
     @NotBlank (message = "apellido es requerido")
     @NotNull (message = "el apellido es requerido")
-    @Size (min = 4, max = 20, message = "debe tener mas de 4 letras y menos de 10")
+    @Size (min = 4, max = 10, message = "debe tener mas de 4 letras y menos de 10")
     private String apellido;
     @Column
-    private String correoElectronico;
+    private LocalDate fechaNac;
     @Column
-    private String telefono;
-    @Column
-    private LocalDate fechaDeNacimiento;
-    @Column
-    private Boolean estado = true;
+    private Boolean estado;
 
-    public Usuario() {
+    @OneToOne(mappedBy = "conductor")
+    @JsonIgnore
+    private Vehiculo vehiculo;
+
+    public Conductor() {
     }
 
-    public Usuario(Integer dni, String nombre, String apellido, String correoElectronico, String telefono, LocalDate fechaDeNacimiento,
-            Boolean estado) {
+    // Constructor parametrizado
+    public Conductor(Integer dni, String nombre, String apellido, LocalDate fechaNac, Boolean estado) {
         this.dni = dni;
-        this.Nombre = nombre;
+        this.nombre = nombre;
         this.apellido = apellido;
-        this.correoElectronico = correoElectronico;
-        this.telefono = telefono;
-        this.fechaDeNacimiento = fechaDeNacimiento;
+        this.fechaNac = fechaNac;
         this.estado = estado;
     }
 
@@ -60,11 +58,11 @@ public class Usuario {
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public String getApellido() {
@@ -75,28 +73,12 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public LocalDate getFechaNac() {
+        return fechaNac;
     }
 
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public LocalDate getFechaDeNacimiento() {
-        return fechaDeNacimiento;
-    }
-
-    public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
-        this.fechaDeNacimiento = fechaDeNacimiento;
+    public void setFechaNac(LocalDate fechaNac) {
+        this.fechaNac = fechaNac;
     }
 
     public Boolean getEstado() {
@@ -107,7 +89,12 @@ public class Usuario {
         this.estado = estado;
     }
 
-    
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
 
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
 
 }

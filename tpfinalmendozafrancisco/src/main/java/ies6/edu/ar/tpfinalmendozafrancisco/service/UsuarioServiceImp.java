@@ -19,7 +19,7 @@ public class UsuarioServiceImp implements UsuarioService {
     Usuario nuevoUsuario;
 
     @Override
-    public void borrarUsuario(String dni) {
+    public void borrarUsuario(Integer dni) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'borrarUsuario'");
     }
@@ -44,13 +44,13 @@ public class UsuarioServiceImp implements UsuarioService {
     }
 
     @Override
-    public Usuario buscarUnUsuario(String dni) {
+    public Usuario buscarUnUsuario(Integer dni) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscarUnUsuario'");
     }
 
     @Override
-    public Usuario buscarPorNombreUsuario(String dni) {
+    public Usuario buscarPorNombreUsuario(Integer dni) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscarPorNombreUsuario'");
     }

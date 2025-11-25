@@ -10,17 +10,14 @@ public class IndexController {
         public String getIndex() {
         return "index";
     }
-    
-    
-    // @GetMapping ("/nuevo")
-    //     public String getNuevo() {
-    //     return "nuevo";s
-    // }
-    
-    // @GetMapping("7nuevo")
-    // public ModelAndView nuevoMetodo(){
-    //     System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-    //     ModelAndView model = new ModelAndView("nuevo");
-    //     return model;
-    // }
+
+    //@GetMapping("/viaje")
+    //public String viaje() {
+    //    return "redirect:/usuarios/nuevo";
+    //}
+
+    @GetMapping("/viaje/nuevo")
+    public String nuevoViaje() {
+        return "redirect:/usuarios/nuevo";
+    }
 }

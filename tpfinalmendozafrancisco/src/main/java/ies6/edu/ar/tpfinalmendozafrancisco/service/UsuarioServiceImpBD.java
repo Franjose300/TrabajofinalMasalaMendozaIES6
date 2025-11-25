@@ -22,7 +22,7 @@ public class UsuarioServiceImpBD implements UsuarioService {
     UsuarioRepository usuarioRepository;
 
     @Override
-    public void borrarUsuario(String dni) {
+    public void borrarUsuario(Integer dni) {
         usuarioRepository.deleteById(dni);
 
     }
@@ -44,12 +44,12 @@ public class UsuarioServiceImpBD implements UsuarioService {
     }
 
     @Override
-    public Usuario buscarUnUsuario(String dni) throws Exception {
+    public Usuario buscarUnUsuario(Integer dni) throws Exception {
         return usuarioRepository.findById(dni).orElseThrow(() -> new RuntimeException("Usuario no encontrado con DNI: " + dni));
     }
 
     @Override
-    public Usuario buscarPorNombreUsuario(String dni) {
+    public Usuario buscarPorNombreUsuario(Integer dni) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscarPorNombreUsuario'");
     }

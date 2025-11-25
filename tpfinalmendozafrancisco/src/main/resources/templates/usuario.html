@@ -13,22 +13,22 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f9fc; /* Fondo muy claro */
+            background-color: #f7f9fc;
         }
         .main-container {
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Alineado arriba para que no se pegue al centro exacto */
+            align-items: flex-start; 
             padding-top: 50px;
             padding-bottom: 50px;
         }
-        /* Estilo para la tarjeta del formulario */
+        
         .form-card {
             background-color: white;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
             width: 100%;
             max-width: 600px;
         }
@@ -38,25 +38,23 @@
             transition: border-color 0.3s, box-shadow 0.3s;
         }
         .form-control:focus {
-            border-color: #4f46e5; /* Indigo */
+            border-color: #4f46e5;
             box-shadow: 0 0 0 0.25rem rgba(79, 70, 229, 0.25);
         }
         
-        /* ESTILO AÑADIDO: Degradado para el título */
+     
         .header-gradient {
-            /* Degradado de Indigo (tu color principal) a Violeta */
+          
             background-image: linear-gradient(to right, #4f46e5, #8b5cf6); 
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            /* Una sutil sombra para darle relieve */
+    
             text-shadow: 1px 1px 3px rgba(79, 70, 229, 0.2); 
         }
 
-        /* Estilo para el botón de acción principal (MODIFICAR/INGRESAR) */
         .btn-action {
-            /* Usamos la misma gama de colores */
-            background-color: #4f46e5; /* Indigo-600 */
+            background-color: #4f46e5;
             border-color: #4f46e5;
             color: white;
             font-weight: 700; 
@@ -81,24 +79,20 @@
         <div class="form-card">
             
             <header class="text-center mb-5">
-                <!-- Título dinámico con la nueva clase de degradado -->
                 <h1 class="text-3xl font-extrabold header-gradient" 
                     th:text="${band} ? 'MODIFICAR DATOS DE USUARIO' : 'REGISTRAR NUEVO USUARIO'">
-                    AGREGAR USUARIO
+                    REGISTRAR USUARIO
                 </h1>
                 <p class="text-sm text-muted mt-2">Completa todos los campos requeridos.</p>
             </header>
             
-            <!-- FORMULARIO DE THYMELEAF -->
             <form data-th-object="${nuevoUsuario}" data-th-action="@{/guardarUsuario}" method="post"
                 enctype="multipart/form-data" class="needs-validation" novalidate>
                 
                 <div class="row g-4">
                     
-                    <!-- DNI (Columna 1) -->
                     <div class="col-md-6">
                         <label for="dni" class="form-label font-semibold">DNI</label>
-                        <!-- Deshabilitar DNI en modo modificación si es necesario -->
                         <input type="text" id="dni" placeholder="Ingresar DNI sin puntos ni comas" 
                             data-th-field="*{dni}" class="form-control" required 
                             th:attr="readonly=${band ? true : false}"
@@ -108,7 +102,6 @@
                         </div>
                     </div>
                     
-                    <!-- Teléfono (Columna 2) -->
                     <div class="col-md-6">
                         <label for="telefono" class="form-label font-semibold">Teléfono</label>
                         <input type="tel" id="telefono" placeholder="Ingresar teléfono de contacto" 
@@ -118,7 +111,6 @@
                         </div>
                     </div>
 
-                    <!-- Nombre (Columna 1) -->
                     <div class="col-md-6">
                         <label for="nombre" class="form-label font-semibold">Nombre</label>
                         <input type="text" id="nombre" placeholder="Ingresar nombre" 
@@ -128,7 +120,6 @@
                         </div>
                     </div>
                     
-                    <!-- Apellido (Columna 2) -->
                     <div class="col-md-6">
                         <label for="apellido" class="form-label font-semibold">Apellido</label>
                         <input type="text" id="apellido" placeholder="Ingresar apellido" 
@@ -138,7 +129,6 @@
                         </div>
                     </div>
 
-                    <!-- Correo Electrónico (Columna 1) -->
                     <div class="col-md-6">
                         <label for="correoElectronico" class="form-label font-semibold">Correo Electrónico</label>
                         <input type="email" id="correoElectronico" placeholder="Ingresar su correo (ejemplo@gmail.com)" 
@@ -148,7 +138,6 @@
                         </div>
                     </div>
 
-                    <!-- Fecha de Nacimiento (Columna 2) -->
                     <div class="col-md-6">
                         <label for="fechaDeNacimiento" class="form-label font-semibold">Fecha de Nacimiento</label>
                         <input type="date" id="fechaDeNacimiento" name="fechaDeNacimiento" required 
@@ -159,7 +148,6 @@
                     </div>
                 </div>
 
-                <!-- Botón de Envío (con texto dinámico) -->
                 <div class="d-grid mt-5">
                     <button type="submit" th:text="${band} ? 'GUARDAR MODIFICACIONES' : 'REGISTRAR USUARIO'" 
                         class="btn btn-action btn-lg shadow-md hover:shadow-xl"></button>
@@ -170,7 +158,6 @@
 
             <!-- Botón de Inicio -->
             <div class="d-grid">
-                <!-- He añadido un estilo más suave para este botón de navegación -->
                 <a href="/" class="btn btn-outline-secondary font-semibold border-2 hover:border-indigo-400 hover:text-indigo-600">
                     VOLVER AL INICIO
                 </a>
@@ -178,7 +165,6 @@
         </div>
     </div>
     
-    <!-- Carga de Bootstrap JS (para el funcionamiento de la validación) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     
 </body>
