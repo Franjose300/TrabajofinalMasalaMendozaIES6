@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TpfinalmendozafranciscoApplication<tpfinalmendozafrancisco>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "ies6.edu.ar.tpfinalmendozafrancisco.tpfinalmendozafrancisco.TpfinalmendozafranciscoApplication",
+            "projectName": "tpfinalmendozafrancisco",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-TpfinalmendozafranciscoApplication<tpfinalmendozafrancisco>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "ies6.edu.ar.tpfinalmendozafrancisco.TpfinalmendozafranciscoApplication",
+            "projectName": "tpfinalmendozafrancisco",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
